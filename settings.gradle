@@ -1,0 +1,4 @@
+rootProject.name = 'cmdr'
+include 'core'
+include 'reports'
+include 'ui'
