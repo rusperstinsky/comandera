@@ -16,11 +16,11 @@ class DrinksPanel extends JPanel {
     }
 
     private void buildUI( ) {
-      sb.panel( this, layout: new MigLayout( 'fill,wrap 3','[fill,grow][fill,grow][fill,grow]','[fill,grow]') ) {
-        button("refresco")
-        button("agua")
-        button("cerveza")
-        button("tepache")
+      sb.panel( this, layout: new MigLayout( 'wrap 4','[]','[]'), border: BorderFactory.createEmptyBorder(0, 0, 0, 0) ) {
+        button("refresco", preferredSize: [125,100])
+        button("agua", preferredSize: [125,100])
+        button("cerveza", preferredSize: [125,100])
+        button("tepache", preferredSize: [125,100])
       }
 
     }

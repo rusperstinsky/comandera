@@ -31,13 +31,7 @@ class AccessController {
 
   static User getUser( String username ) {
     log.info( "solicitando usuario: ${username}" )
-    Integer value = 0
-    try{
-      value = NumberFormat.getInstance().parse(StringUtils.trimToEmpty(username))
-    } catch ( ParseException e ){
-      println e.message
-    }
-    return User.toUser( empleadoService.obtenerEmpleado( value ) )
+    return User.toUser( empleadoService.obtenerEmpleado( StringUtils.trimToEmpty(username) ) )
   }
 
   static boolean checkCredentials( String username, String password ) {

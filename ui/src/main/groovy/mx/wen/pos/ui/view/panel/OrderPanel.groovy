@@ -156,7 +156,7 @@ class OrderPanel extends JPanel implements FocusListener {
     private void buildUI() {
         sb.panel(this, layout: new MigLayout('fill,wrap 2', '[fill][fill,grow]', '[fill,grow]')) {
           panel(layout: new MigLayout('insets 5,fill,wrap 2', '[fill][fill]', '[fill,grow]')){
-            panel(layout: new MigLayout('insets 0,fill', '[fill,400][fill,300!]', '[fill]'), constraints: 'span') {
+            panel(layout: new MigLayout('insets 0,fill', '[fill,280][fill,300!]', '[fill]'), constraints: 'span') {
                 panel(border: loweredEtchedBorder(), layout: new MigLayout('wrap 2', '[][fill,right]', '[top]')) {
                     label(constraints: 'span')
                     label(constraints: 'span')
@@ -191,11 +191,11 @@ class OrderPanel extends JPanel implements FocusListener {
                 }
             }
 
-            scrollPane(border: titledBorder(title: 'Art\u00edculos'), preferredSize: [200, 550], constraints: 'span') {
+            scrollPane(border: titledBorder(title: 'Art\u00edculos'), preferredSize: [120, 550], constraints: 'span') {
                 table(selectionMode: ListSelectionModel.SINGLE_SELECTION, mouseClicked: doShowItemClick) {
                     itemsModel = tableModel(list: order.items) {
                         closureColumn(
-                                header: 'Art\u00edculo',
+                                header: 'Pedido',
                                 read: { OrderItem tmp -> "${tmp?.item?.name}" },
                                 minWidth: 180,
                                 maxWidth: 200
@@ -283,7 +283,7 @@ class OrderPanel extends JPanel implements FocusListener {
                 comments = textArea(document: new UpperCaseDocument(), lineWrap: true)
             }
 
-            panel(minimumSize: [750, 45], border: BorderFactory.createEmptyBorder(0, 0, 0, 0), constraints: 'span') {
+            panel(minimumSize: [600, 45], border: BorderFactory.createEmptyBorder(0, 0, 0, 0), constraints: 'span') {
                 borderLayout()
                 panel(constraints: BorderLayout.LINE_START, border: BorderFactory.createEmptyBorder(0, 0, 0, 0)) {
                     closeButton = button(TXT_BTN_CLOSE,

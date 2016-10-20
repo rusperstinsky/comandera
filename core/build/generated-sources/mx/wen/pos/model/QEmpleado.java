@@ -28,7 +28,7 @@ public class QEmpleado extends EntityPathBase<Empleado> {
 
     public final DateTimePath<java.util.Date> fechaModificado = createDateTime("fechaModificado", java.util.Date.class);
 
-    public final NumberPath<Integer> id = createNumber("id", Integer.class);
+    public final StringPath id = createString("id");
 
     public final NumberPath<Integer> idPuesto = createNumber("idPuesto", Integer.class);
 

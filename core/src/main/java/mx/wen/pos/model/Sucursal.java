@@ -44,7 +44,7 @@ public class Sucursal implements Serializable {
     private String telefonos;
 
     @Column( name = "id_gerente", length = 13 )
-    private Integer idGerente;
+    private String idGerente;
 
     @Column( name = "udf1", length = 13 )
     private String udf1;
@@ -153,11 +153,11 @@ public class Sucursal implements Serializable {
         this.telefonos = telefonos;
     }
 
-    public Integer getIdGerente() {
+    public String getIdGerente() {
         return idGerente;
     }
 
-    public void setIdGerente(Integer idGerente) {
+    public void setIdGerente(String idGerente) {
         this.idGerente = idGerente;
     }
 

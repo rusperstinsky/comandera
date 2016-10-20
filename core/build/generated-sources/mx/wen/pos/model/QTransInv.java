@@ -24,7 +24,7 @@ public class QTransInv extends EntityPathBase<TransInv> {
 
     public final NumberPath<Integer> folio = createNumber("folio", Integer.class);
 
-    public final NumberPath<Integer> idEmpleado = createNumber("idEmpleado", Integer.class);
+    public final StringPath idEmpleado = createString("idEmpleado");
 
     public final StringPath idTipoTrans = createString("idTipoTrans");
 

@@ -15,41 +15,6 @@ class PlatesPanel extends JPanel {
     private static final String TXT_TAB_TITLE = 'Platillos'
     private SwingBuilder sb
 
-    private JTextField txtOdEsfera
-    private JTextField txtOdCil
-    private JTextField txtOdEje
-    private JTextField txtOdAd
-    private JTextField txtOdAv
-    private JTextField txtOdDm
-    private JTextField txtOdPrisma
-    private JTextField txtOdUbic
-
-    private JTextField txtOiEsfera
-    private JTextField txtOiCil
-    private JTextField txtOiEje
-    private JTextField txtOiAd
-    private JTextField txtOiAv
-    private JTextField txtOiDm
-    private JTextField txtOiPrisma
-    private JTextField txtOiUbic
-
-    private JTextField txtDICerca
-    private JTextField txtAltOblea
-    private JTextField txtDILejos
-
-    private JTextField txtDh
-    private JTextField txtDv
-    private JTextField txtPte
-    private JTextField txtBase
-
-    private JTextField txtObservaciones
-
-    private JPanel empleadoPanel
-    private JPanel usoRxPanel1
-    private JPanel usoRxPanel2
-    private JPanel measuresFramePanel
-
-
     public boolean cancel = false
 
     public PlatesPanel( ) {
@@ -58,17 +23,76 @@ class PlatesPanel extends JPanel {
     }
 
     private void buildUI( ) {
-      sb.panel( this, layout: new MigLayout( 'fill,wrap 3','[fill,grow][fill,grow][fill,grow]','[fill,grow]') ) {
-        button("milanesa")
-        button("pollo")
-        button("pechuga asada")
-        button("atun")
-        button("chamorro")
-        button("cochinita")
-        button("bisteck")
-        button("mole verde")
+        sb.panel(this, layout: new MigLayout('wrap', '[fill,grow]', '[]')){
+          scrollPane( constraints: BorderLayout.CENTER ) {
+            panel(layout: new MigLayout('wrap 4', '5[fill]18[fill]18[fill]18[fill]1', '[fill]20[fill]')) {
+                button("milanesa", preferredSize: [100, 100])
+                button("pollo", preferredSize: [100, 100])
+                button("pechuga asada", preferredSize: [100, 100])
+                button("atun", preferredSize: [100, 100])
+                button("chamorro", preferredSize: [100, 100])
+                button("cochinita", preferredSize: [100, 100])
+                button("bisteck", preferredSize: [100, 100])
+                button("mole verde", preferredSize: [100, 100])
+                button("milanesa", preferredSize: [100, 100])
+                button("pollo", preferredSize: [100, 100])
+                button("pechuga asada", preferredSize: [100, 100])
+                button("atun", preferredSize: [100, 100])
+                button("chamorro", preferredSize: [100, 100])
+                button("cochinita", preferredSize: [100, 100])
+                button("bisteck", preferredSize: [100, 100])
+                button("mole verde", preferredSize: [100, 100])
+                button("milanesa", preferredSize: [100, 100])
+                button("pollo", preferredSize: [100, 100])
+                button("pechuga asada", preferredSize: [100, 100])
+                button("atun", preferredSize: [100, 100])
+                button("chamorro", preferredSize: [100, 100])
+                button("cochinita", preferredSize: [100, 100])
+                button("bisteck", preferredSize: [100, 100])
+                button("mole verde", preferredSize: [100, 100])
+                button("milanesa", preferredSize: [100, 100])
+                button("pollo", preferredSize: [100, 100])
+                button("pechuga asada", preferredSize: [100, 100])
+                button("atun", preferredSize: [100, 100])
+                button("chamorro", preferredSize: [100, 100])
+                button("cochinita", preferredSize: [100, 100])
+                button("bisteck", preferredSize: [100, 100])
+                button("mole verde", preferredSize: [100, 100])
+                button("milanesa", preferredSize: [100, 100])
+                button("pollo", preferredSize: [100, 100])
+                button("pechuga asada", preferredSize: [100, 100])
+                button("atun", preferredSize: [100, 100])
+                button("chamorro", preferredSize: [100, 100])
+                button("cochinita", preferredSize: [100, 100])
+                button("bisteck", preferredSize: [100, 100])
+                button("mole verde", preferredSize: [100, 100])
+                button("milanesa", preferredSize: [100, 100])
+                button("pollo", preferredSize: [100, 100])
+                button("pechuga asada", preferredSize: [100, 100])
+                button("atun", preferredSize: [100, 100])
+                button("chamorro", preferredSize: [100, 100])
+                button("cochinita", preferredSize: [100, 100])
+                button("bisteck", preferredSize: [100, 100])
+                button("mole verde", preferredSize: [100, 100])
+                button("milanesa", preferredSize: [100, 100])
+                button("pollo", preferredSize: [100, 100])
+                button("pechuga asada", preferredSize: [100, 100])
+                button("atun", preferredSize: [100, 100])
+                button("chamorro", preferredSize: [100, 100])
+                button("cochinita", preferredSize: [100, 100])
+                button("bisteck", preferredSize: [100, 100])
+                button("mole verde", preferredSize: [100, 100])
+                button("milanesa", preferredSize: [100, 100])
+                button("pollo", preferredSize: [100, 100])
+                button("pechuga asada", preferredSize: [100, 100])
+                button("atun", preferredSize: [100, 100])
+                button("chamorro", preferredSize: [100, 100])
+                button("cochinita", preferredSize: [100, 100])
+                button("bisteck", preferredSize: [100, 100])
+                button("mole verde", preferredSize: [100, 100])
+            }
+        }
       }
-
     }
 
 }

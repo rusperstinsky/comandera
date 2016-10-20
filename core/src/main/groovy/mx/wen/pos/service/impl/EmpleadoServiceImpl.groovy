@@ -26,11 +26,11 @@ class EmpleadoServiceImpl implements EmpleadoService {
   static final Integer TAG_ID_EMPRESA = 7
 
   @Override
-  Empleado obtenerEmpleado( Integer id ) {
+  Empleado obtenerEmpleado( String id ) {
     log.info( "obteniendo empleado id: ${id}" )
     if ( id != null ) {
       Empleado empleado = empleadoRepository.findOne( id )
-      if ( empleado?.id ) {
+      if ( StringUtils.trimToEmpty(empleado?.id).length() > 0 ) {
         return empleado
       } else {
         log.warn( "empleado no existe" )

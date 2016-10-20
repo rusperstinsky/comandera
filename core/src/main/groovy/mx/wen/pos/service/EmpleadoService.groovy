@@ -5,6 +5,6 @@ import mx.wen.pos.model.Empleado
 
 interface EmpleadoService {
 
-  Empleado obtenerEmpleado( Integer id )
+  Empleado obtenerEmpleado( String id )
 
 }

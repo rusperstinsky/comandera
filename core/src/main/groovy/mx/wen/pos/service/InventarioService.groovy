@@ -53,7 +53,7 @@ interface InventarioService {
 
   Sucursal sucursalActual( )
 
-  Empleado obtenerEmpleado( Integer pEmpId )
+  Empleado obtenerEmpleado( String pEmpId )
 
   Sucursal obtenerSucursal( Integer pSite )
 

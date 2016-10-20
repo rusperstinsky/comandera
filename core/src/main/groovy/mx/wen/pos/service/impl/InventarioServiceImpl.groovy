@@ -228,7 +228,7 @@ class InventarioServiceImpl implements InventarioService {
         return Registry.invTrTypeEntradaAlmacen
   }
 
-    Empleado obtenerEmpleado( Integer pEmpId ) {
+    Empleado obtenerEmpleado( String pEmpId ) {
     return empleadoService.obtenerEmpleado( pEmpId )
   }
 

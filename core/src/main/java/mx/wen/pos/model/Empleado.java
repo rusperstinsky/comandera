@@ -17,7 +17,7 @@ public class Empleado implements Serializable {
 
     @Id
     @Column( name = "id_empleado" )
-    private Integer id;
+    private String id;
 
     @Column( name = "nombre_empleado" )
     private String nombre;
@@ -52,6 +52,7 @@ public class Empleado implements Serializable {
 
     @PostLoad
     private void trim() {
+        id = StringUtils.trimToEmpty( id );
         nombre = StringUtils.trimToEmpty( nombre );
         apellidoPaterno = StringUtils.trimToEmpty( apellidoPaterno );
         apellidoMaterno = StringUtils.trimToEmpty( apellidoMaterno );
@@ -89,11 +90,11 @@ public class Empleado implements Serializable {
         return sb.toString().trim();
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
