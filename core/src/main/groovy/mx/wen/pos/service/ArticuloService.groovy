@@ -10,6 +10,8 @@ interface ArticuloService {
 
   List<Articulo> listarArticulosPorCodigo( String articulo )
 
+  List<Articulo> listarArticulosPorSubtipo( String subtipo )
+
   //List<Articulo> listarArticulosPorCodigo( String articulo, boolean incluyePrecio )
 
   List<Articulo> listarArticulosPorCodigoSimilar( String articulo )

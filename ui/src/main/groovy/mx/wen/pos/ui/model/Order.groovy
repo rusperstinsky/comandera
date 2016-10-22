@@ -17,7 +17,7 @@ class Order {
   private static final String OPHTALMIC_TYPE = 'B'
 
   String id
-  Integer employee
+  String employee
   Customer customer
   BigDecimal totalSell
   BigDecimal netSell

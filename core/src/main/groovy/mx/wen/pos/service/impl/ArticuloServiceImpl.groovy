@@ -70,6 +70,14 @@ class ArticuloServiceImpl implements ArticuloService {
     return resultados
   }
 
+  @Override
+  List<Articulo> listarArticulosPorSubtipo( String subtipo ) {
+    log.info( "listando articulos con articulo: ${subtipo}" )
+    Predicate predicate = QArticulo.articulo1.subtipo.equalsIgnoreCase( StringUtils.trimToEmpty(subtipo) )
+    List<Articulo> resultados = articuloRepository.findAll( predicate, QArticulo.articulo1.id.asc() ) as List<Articulo>
+    return resultados
+  }
+
   /*@Override
   List<Articulo> listarArticulosPorCodigoSimilar( String articulo ) {
     return listarArticulosPorCodigoSimilar( articulo, true )

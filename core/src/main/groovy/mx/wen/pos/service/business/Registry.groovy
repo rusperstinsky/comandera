@@ -55,6 +55,10 @@ class Registry {
     }
     return p
   }
+
+  static String getDrinkItems( ){
+    return asString( TipoParametro.BEBIDAS )
+  }
   /*static Parametros find( mx.lux.pos.java.TipoParametro pParametro ) {
     Parametros p = ParametrosQuery.BuscaParametroPorId( pParametro.getValor() )
     return p
@@ -871,6 +875,13 @@ class Registry {
                 session.disconnect();
         }
     }*/
+
+
+  static String asString( TipoParametro pParametro ) {
+    Parametro p = find( pParametro )
+    return StringUtils.trimToEmpty( p.valor )
+  }
+
 
   static void getSolicitaGarbageColector(){
     try{

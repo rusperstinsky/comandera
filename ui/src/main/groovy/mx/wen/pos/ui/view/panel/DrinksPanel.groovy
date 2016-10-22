@@ -1,28 +1,66 @@
 package mx.wen.pos.ui.view.panel
 
 import groovy.swing.SwingBuilder
+import mx.wen.pos.service.business.Registry
+import mx.wen.pos.ui.controller.ItemController
+import mx.wen.pos.ui.model.Item
 import net.miginfocom.swing.MigLayout
+import org.apache.commons.lang.StringUtils
 
 import javax.swing.*
+import java.awt.BorderLayout
+import java.awt.event.ActionEvent
+import java.awt.event.ActionListener
 
 class DrinksPanel extends JPanel {
 
     private static final String TXT_TAB_TITLE = 'Platillos'
     private SwingBuilder sb
+    private List<Item> items
+    private JPanel mainPanel
+    private OrderPanel orderPanel
 
-    public DrinksPanel( ) {
+    public DrinksPanel( OrderPanel orderPanel ) {
       sb = new SwingBuilder()
+      this.orderPanel = orderPanel
+      items = ItemController.findItemsBySubtype( Registry.drinkItems )
       buildUI()
+      addButtons( )
     }
 
     private void buildUI( ) {
-      sb.panel( this, layout: new MigLayout( 'wrap 4','[]','[]'), border: BorderFactory.createEmptyBorder(0, 0, 0, 0) ) {
-        button("refresco", preferredSize: [125,100])
-        button("agua", preferredSize: [125,100])
-        button("cerveza", preferredSize: [125,100])
-        button("tepache", preferredSize: [125,100])
-      }
+      sb.panel(this, layout: new MigLayout('wrap', '[fill,grow]', '[fill,grow]')){
+        scrollPane( constraints: BorderLayout.CENTER ) {
+          mainPanel = panel(layout: new MigLayout('wrap 4', '5[fill]18[fill]18[fill]18[fill]1', '[fill]20[fill]')) {
 
+          }
+        }
+      }
     }
+
+
+    private void addButtons( ){
+        for(Item i : items){
+            JButton btn = new JButton()
+            //"<html>${description.substring(0,80)}<br>${description.substring(80)}<br><html>"
+            String plate = ""
+            String[] data = i.name.split(" ")
+            for(String d : data){
+                plate = plate+"${d}<br>"
+            }
+            btn.text =  "<html>${plate}<html>"
+            btn.preferredSize = [100, 100]
+            btn.name = StringUtils.trimToEmpty(i.id.toString())
+            btn.addActionListener( new ActionListener() {
+                @Override
+                void actionPerformed(ActionEvent e) {
+                    orderPanel.itemSearch.text = StringUtils.trimToEmpty(btn.name)
+                    orderPanel.doItemSearch( "" )
+                }
+            })
+            mainPanel.add( btn )
+        }
+    }
+
 
 }

@@ -37,7 +37,7 @@ public class Pago implements Serializable {
     private Date fecha;
 
     @Column( name = "id_empleado" )
-    private Integer idEmpleado;
+    private String idEmpleado;
 
     @Temporal( TemporalType.TIMESTAMP )
     @Column( name = "fecha_mod", nullable = false )
@@ -139,11 +139,11 @@ public class Pago implements Serializable {
         this.fecha = fecha;
     }
 
-    public Integer getIdEmpleado() {
+    public String getIdEmpleado() {
         return idEmpleado;
     }
 
-    public void setIdEmpleado( Integer idEmpleado ) {
+    public void setIdEmpleado( String idEmpleado ) {
         this.idEmpleado = idEmpleado;
     }
 

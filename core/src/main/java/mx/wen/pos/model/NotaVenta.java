@@ -24,7 +24,7 @@ public class NotaVenta implements Serializable {
     private String id;
 
     @Column( name = "id_empleado" )
-    private Integer idEmpleado;
+    private String idEmpleado;
 
     @Column( name = "id_cliente" )
     private Integer idCliente;
@@ -144,11 +144,11 @@ public class NotaVenta implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdEmpleado() {
+    public String getIdEmpleado() {
         return idEmpleado;
     }
 
-    public void setIdEmpleado(Integer idEmpleado) {
+    public void setIdEmpleado(String idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
 

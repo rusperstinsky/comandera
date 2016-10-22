@@ -64,6 +64,7 @@ enum TipoParametro {
   TIPO_PAGO( 'tipo_pago', '' ),
   TIPO_PAGO_DOLARES( 'tipo_pago_dolares', 'EFD,TCD,TDD' ),
   TIPO_PAGO_CRE_EMP( 'tipo_pago_credito_emp', 'CRE'),
+  BEBIDAS( 'tipo_bebida', 'BEBIDA'),
   TRANS_INV_TIPO_AJUSTE( 'trans_inv_tipo_ajuste', 'AJUSTE' ),
   TRANS_INV_TIPO_CANCELACION( 'trans_inv_tipo_cancelacion', 'DEVOLUCION' ),
   TRANS_INV_TIPO_CANCELACION_EXTRA( 'trans_inv_tipo_canc_extraordinaria', 'RETORNO' ),

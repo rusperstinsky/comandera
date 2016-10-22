@@ -17,7 +17,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="DejaVu Sans" size="18" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Farmacias Similares]]></text>
+				<text><![CDATA[Tomato Restaurante]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="0" y="36" width="226" height="58" uuid="133b0ff1-de57-40dd-a186-d31c1c0d7574"/>

@@ -17,6 +17,7 @@ import mx.wen.pos.ui.model.SessionItem
 import mx.wen.pos.ui.model.UpperCaseDocument
 import mx.wen.pos.ui.model.User
 import mx.wen.pos.ui.resources.UI_Standards
+import mx.wen.pos.ui.view.dialog.ExtraItemsDialog
 import mx.wen.pos.ui.view.dialog.HelpItemSearchDialog
 import mx.wen.pos.ui.view.dialog.ItemDialog
 import mx.wen.pos.ui.view.dialog.OrderActiveSelectionDialog
@@ -24,6 +25,7 @@ import mx.wen.pos.ui.view.dialog.PaymentDialog
 import mx.wen.pos.ui.view.dialog.SuggestedItemsDialog
 import mx.wen.pos.ui.view.renderer.MoneyCellRenderer
 import net.miginfocom.swing.MigLayout
+import org.apache.commons.lang3.StringEscapeUtils
 import org.apache.commons.lang3.StringUtils
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -94,7 +96,7 @@ class OrderPanel extends JPanel implements FocusListener {
     private JButton newOrderButton
     private JButton cancelOrderButton
     private JTextArea comments
-    private JTextField itemSearch
+    public JTextField itemSearch = new JTextField()
     private JTextField itemQty
     private DefaultTableModel itemsModel
     private DefaultTableModel paymentsModel
@@ -127,10 +129,6 @@ class OrderPanel extends JPanel implements FocusListener {
     private String sComments = ''
     private HelpItemSearchDialog helpItemSearchDialog
 
-    private Boolean promoAgeActive
-
-    private String MSJ_ERROR_WARRANTY = ""
-    private String TXT_ERROR_WARRANTY = ""
     private MainWindow mainWindow
     private SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy")
     private def displayFontTit = new Font('', Font.BOLD, 16)
@@ -144,8 +142,8 @@ class OrderPanel extends JPanel implements FocusListener {
         this.mainWindow = mainWindow
         advanceOnlyInventariable = false
         customer = CustomerController.findDefaultCustomer()
-        platesPanel = new PlatesPanel()
-        drinksPanel = new DrinksPanel()
+        platesPanel = new PlatesPanel( this )
+        drinksPanel = new DrinksPanel( this )
         buildUI()
         doBindings()
         //itemsModel.addTableModelListener(this.promotionDriver)
@@ -413,7 +411,7 @@ class OrderPanel extends JPanel implements FocusListener {
 
 
    //Busca y valida el articulo que se inserta en la caja de texto.
-    private def doItemSearch(  String tipo ) {
+    public def doItemSearch(  String tipo ) {
       Registry.getSolicitaGarbageColector()
       String input = StringUtils.trimToEmpty(itemSearch.text)
       if ( StringUtils.isNotBlank( input ) || StringUtils.isNotBlank( tipo ) ) {
@@ -427,6 +425,10 @@ class OrderPanel extends JPanel implements FocusListener {
                       JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE )
                 if( question == 0){
                   Item item = results.first()
+                  if( StringUtils.trimToEmpty(item.subtype) ){
+                    ExtraItemsDialog extraItemsDialog = new ExtraItemsDialog( itemSearch, item )
+
+                  }
                   creaVenta( item )
                 }
               } else {

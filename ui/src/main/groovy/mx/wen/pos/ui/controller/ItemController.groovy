@@ -76,6 +76,14 @@ class ItemController {
     }
   }
 
+  static List<Item> findItemsBySubtype( String subtype ) {
+    log.debug( "buscando articulos con subtipo: ${subtype}" )
+    def results = articuloService.listarArticulosPorSubtipo( subtype )
+    results.collect {
+      Item.toItem( it )
+    }
+  }
+
   static List<Item> findItemsLike( String input ) {
     log.debug( "buscando articulos con articulo similar a: $input" )
     def results = articuloService.listarArticulosPorCodigoSimilar( input )
